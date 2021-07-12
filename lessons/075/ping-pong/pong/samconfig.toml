@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "pong"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-rm1qe0x5hh63"
+s3_prefix = "pong"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["PongFunction=424432388155.dkr.ecr.us-east-1.amazonaws.com/pong"]

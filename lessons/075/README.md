@@ -25,30 +25,30 @@ cd ping-pong
 ```
 - Initialize SAM project
 ```
-sam iniit
+sam init
 ```
 - Select `1 - AWS Quick Start Templates`
 - Select `2 - Image (artifact is an image uploaded to an ECR image repository)`
 - Select `1 - amazon/nodejs14.x-base`
-- Project name [sam-app]: `service-1`
+- Project name [sam-app]: `ping`
 
-- Change directory to service-1
+- Change directory to ping
 ```
-cd service-1
+cd ping
 ```
 
 - Build App
 ```
 sam build
 ```
-- Create ECR repository `service-1`
+- Create ECR repository `ping`
 - Deploy
 ```
 sam deploy --guided
 ```
-- Stack Name [sam-app]: service-1
+- Stack Name [sam-app]: ping
 - AWS Region [us-east-1]:
-- Image Repository for HelloWorldFunction: 424432388155.dkr.ecr.us-east-1.amazonaws.com/service-1
+- Image Repository for HelloWorldFunction: 424432388155.dkr.ecr.us-east-1.amazonaws.com/ping
 - Confirm changes before deploy [y/N]: y
 - Allow SAM CLI IAM role creation [Y/n]: y
 - HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: y
@@ -58,9 +58,14 @@ sam deploy --guided
 
 - Deploy this changeset? [y/N]: y
 
-- Access Lambda
+- Access Ping Lambda
 ```
-curl https://<id>.execute-api.us-east-1.amazonaws.com/Prod/hello/
+curl https://3vtoa4mdji.execute-api.us-east-1.amazonaws.com/Prod/ping
 ```
-> {"message":"hello world"}
+> {"message":"ping"}
 
+- Access Pong Lambda
+```
+curl -X POST -d '{"test": "hi"}' https://73rsjfltjh.execute-api.us-east-1.amazonaws.com/Prod/pong
+```
+> {"message":"{\"test\": \"hi\"}"}
