@@ -69,3 +69,22 @@ curl https://3vtoa4mdji.execute-api.us-east-1.amazonaws.com/Prod/ping
 curl -X POST -d '{"test": "hi"}' https://73rsjfltjh.execute-api.us-east-1.amazonaws.com/Prod/pong
 ```
 > {"message":"{\"test\": \"hi\"}"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sam local invoke
+sam local invoke HelloFunction -e events/event.json
+
+curl -d '{"name": "Anton"}' https://hzfn3mfbt3.execute-api.us-east-1.amazonaws.com/Prod/hello/

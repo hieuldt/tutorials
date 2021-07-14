@@ -1,0 +1,70 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS SAM Tutorial
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  HelloAPI:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: stagingtest
+      OpenApiVersion: 3.0.0
+    DefinitionBody:
+      openapi: 3.0.0
+      info:
+        title: Sample API
+        description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+        version: 0.1.9
+      servers:
+        - url: http://api.example.com/v1
+          description: Optional server description, e.g. Main (production) server
+        - url: http://staging-api.example.com
+          description: Optional server description, e.g. Internal staging server for testing
+      paths:
+        /hello:
+          post:
+            summary: Returns a list of users.
+            description: Optional extended description in CommonMark or HTML.
+            responses:
+              '200':    # status code
+                description: A JSON array of user names
+                content:
+                  application/json:
+                    schema: 
+                      type: array
+                      items: 
+                        type: string
+    
+
+  HelloFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: function.lambdaHandler
+      Runtime: nodejs14.x
+      MemorySize: 128
+      Events:
+        Hello:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: POST
+            RestApiId: 
+              Ref: HelloAPI
+
+Outputs:
+  # HelloApi:
+  #   Description: "API Gateway endpoint URL"
+  #   Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+  HelloFunction:
+    Description: "Hello Lambda Function ARN"
+    Value: !GetAtt HelloFunction.Arn
+  HelloFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello function"
+    Value: !GetAtt HelloFunctionRole.Arn
+  Tutorials:
+    Description: "YouTube Channel"
+    Value: https://www.youtube.com/antonputra
