@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS SAM Tutorial
+Globals:
+  Function:
+    Runtime: nodejs14.x
+Resources:
+  HelloAPI:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: staging
+      OpenApiVersion: 3.0.3
+  HelloFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: HelloFunction
+      Handler: function.lambdaHandler
+      MemorySize: 128
+      Timeout: 3
+      Events:
+        Hello:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: POST
+            RestApiId:
+              Ref: HelloAPI
+  CapitalizeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: CapitalizeFunction
+      Handler: function.lambdaHandler
+      MemorySize: 128
+      Timeout: 60
+      Policies: AWSLambdaExecute
+  SrcBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: test-antonputra
+Outputs:
+  HelloFunction:
+    Description: Hello Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - HelloFunction
+      - Arn
+  HelloFunctionIamRole:
+    Description: Implicit IAM Role created for Hello function
+    Value:
+      Fn::GetAtt:
+      - HelloFunctionRole
+      - Arn
+  Tutorials:
+    Description: YouTube Channel
+    Value: https://www.youtube.com/antonputra
