@@ -1,5 +1,5 @@
 {
-  "name": "s3",
+  "name": "api",
   "version": "1.0.0",
   "description": "",
   "main": "function.js",
@@ -7,8 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "aws-sdk": "^2.946.0"
-  }
+  "license": "ISC"
 }
