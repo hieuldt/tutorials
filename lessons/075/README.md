@@ -137,7 +137,7 @@ curl -d '{"name": "Anton"}' https://jh7n04hpaj.execute-api.us-east-1.amazonaws.c
  - Delete SNS topic `sns-topic-for-lambda`
  - Delete ECR repository `sns`
  - Delete all cloud watch log groups
- - Delete IAM User `aputra`
+ - Delete IAM User `admin`
  - Delete AWS CLI `sam`
  ```
  brew remove aws-sam-cli
