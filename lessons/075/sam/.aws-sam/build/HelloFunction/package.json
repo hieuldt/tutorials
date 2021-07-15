@@ -1,14 +1,11 @@
 {
-  "dependencies": {
-    "aws-sdk": "^2.946.0"
-  },
-  "name": "print",
+  "name": "api",
   "version": "1.0.0",
+  "description": "",
   "main": "function.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
-  "description": ""
+  "license": "ISC"
 }

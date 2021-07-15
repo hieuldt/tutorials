@@ -8,4 +8,11 @@ source_md5 = ""
 packagetype = "Zip"
 functions = ["PrintFunction"]
 
+[function_build_definitions.05277be2-c06f-4a8b-8177-9fe874a881ae]
+codeuri = "/Users/antonputra/Developer/tutorials/lessons/075/sam-node/hello"
+runtime = "nodejs14.x"
+source_md5 = ""
+packagetype = "Zip"
+functions = ["HelloFunction"]
+
 [layer_build_definitions]
