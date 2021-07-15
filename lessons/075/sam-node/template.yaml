@@ -7,27 +7,27 @@ Globals:
     Runtime: nodejs14.x
 
 Resources:
-  HelloAPI:
-    Type: AWS::Serverless::Api
-    Properties:
-      StageName: staging
-      OpenApiVersion: 3.0.3
+  # HelloAPI:
+  #   Type: AWS::Serverless::Api
+  #   Properties:
+  #     StageName: staging
+  #     OpenApiVersion: 3.0.3
 
-  HelloFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      CodeUri: hello/
-      Handler: function.lambdaHandler
-      MemorySize: 128
-      Timeout: 3
-      Events:
-        Hello:
-          Type: Api
-          Properties:
-            Path: /hello
-            Method: POST
-            RestApiId: 
-              Ref: HelloAPI
+  # HelloFunction:
+  #   Type: AWS::Serverless::Function
+  #   Properties:
+  #     CodeUri: hello/
+  #     Handler: function.lambdaHandler
+  #     MemorySize: 128
+  #     Timeout: 3
+  #     Events:
+  #       Hello:
+  #         Type: Api
+  #         Properties:
+  #           Path: /hello
+  #           Method: POST
+  #           RestApiId: 
+  #             Ref: HelloAPI
 
   CapitalizeFunction:
     Type: AWS::Serverless::Function
@@ -37,25 +37,23 @@ Resources:
       MemorySize: 128
       Timeout: 60
       Policies: AWSLambdaExecute
-      # Events:
-      #   CapitalizeEvent:
-      #     Type: S3
-      #     Properties:
-      #       Bucket: !Ref SrcBucket
-      #       Events: s3:ObjectCreated:*
+      Events:
+        CapitalizeEvent:
+          Type: S3
+          Properties:
+            Bucket: !Ref SrcBucket
+            Events: s3:ObjectCreated:*
 
   SrcBucket:
     Type: AWS::S3::Bucket
-    Properties:
-      BucketName: test-antonputra
 
-Outputs:
-  HelloFunction:
-    Description: "Hello Lambda Function ARN"
-    Value: !GetAtt HelloFunction.Arn
-  HelloFunctionIamRole:
-    Description: "Implicit IAM Role created for Hello function"
-    Value: !GetAtt HelloFunctionRole.Arn
-  Tutorials:
-    Description: "YouTube Channel"
-    Value: https://www.youtube.com/antonputra
+# Outputs:
+#   HelloFunction:
+#     Description: "Hello Lambda Function ARN"
+#     Value: !GetAtt HelloFunction.Arn
+#   HelloFunctionIamRole:
+#     Description: "Implicit IAM Role created for Hello function"
+#     Value: !GetAtt HelloFunctionRole.Arn
+#   Tutorials:
+#     Description: "YouTube Channel"
+#     Value: https://www.youtube.com/antonputra
