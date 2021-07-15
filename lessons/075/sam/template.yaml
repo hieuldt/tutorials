@@ -47,6 +47,20 @@ Resources:
     Properties:
       BucketName: test-antonputra
 
+    SNSFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Events:
+        HelloWorld:
+          Type: SNS
+          Properties:
+            Topic: arn:aws:sns:us-east-1:424432388155:sns-topic-for-lambda
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ./sns
+      DockerTag: python3.8-v1
+
 Outputs:
   HelloFunction:
     Description: "Hello Lambda Function ARN"
