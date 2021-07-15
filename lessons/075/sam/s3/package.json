@@ -2,7 +2,7 @@
   "dependencies": {
     "aws-sdk": "^2.946.0"
   },
-  "name": "capitalize",
+  "name": "s3",
   "version": "1.0.0",
   "main": "function.js",
   "scripts": {
