@@ -96,3 +96,14 @@ aws sns create-topic --name sns-topic-for-lambda
 aws sns publish --message file://message.txt --subject Test \
 --topic-arn arn:aws:sns:us-east-2:12345678901A:sns-topic-for-lambda \
 --profile accountA
+
+
+## Clen Up
+
+ - Delete SNS topic `sns-topic-for-lambda`
+ - Delete ECR repository `sns`
+ - Delete all cloud watch log groups
+ - Delete IAM User `aputra`
+ - Delete AWS CLI `sam`
+ - Delete all S3 buckets
+ - Delete all CloudFormation Templates
