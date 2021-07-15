@@ -125,10 +125,10 @@ curl -d '{"name": "Anton"}' https://jh7n04hpaj.execute-api.us-east-1.amazonaws.c
 - Create `sns` folder
 - Create `function.py`, `requirements.txt`, and `Dockerfile`
 - Add `SNSFunction` and `Outputs`
+- Create SNS topic `sns-topic-for-lambda`
 - Run `sam build`
 - Run `sam deploy --guided`
 - Create ECR repo `sns`
-- Create SNS topic `sns-topic-for-lambda`
 - Publish message
 - Check CloudWatch logs
 
