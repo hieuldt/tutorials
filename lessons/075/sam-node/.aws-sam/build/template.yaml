@@ -5,20 +5,17 @@ Globals:
   Function:
     Runtime: nodejs14.x
 Resources:
-  CapitalizeFunction:
+  PrintFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: CapitalizeFunction
+      CodeUri: PrintFunction
       Handler: function.lambdaHandler
       MemorySize: 128
       Timeout: 60
       Policies: AWSLambdaExecute
       Events:
-        CapitalizeEvent:
+        PrintEvent:
           Type: S3
           Properties:
-            Bucket:
-              Ref: SrcBucket
+            Bucket: arn:aws:s3:::test-antonputra
             Events: s3:ObjectCreated:*
-  SrcBucket:
-    Type: AWS::S3::Bucket

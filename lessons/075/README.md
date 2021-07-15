@@ -88,3 +88,5 @@ sam local invoke
 sam local invoke HelloFunction -e events/event.json
 
 curl -d '{"name": "Anton"}' https://hzfn3mfbt3.execute-api.us-east-1.amazonaws.com/Prod/hello/
+
+https://github.com/aws/serverless-application-model/issues/124
