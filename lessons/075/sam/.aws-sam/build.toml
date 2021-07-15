@@ -15,11 +15,11 @@ source_md5 = ""
 packagetype = "Zip"
 functions = ["S3Function"]
 
-[function_build_definitions.c643d440-fc6b-4452-849c-1df401878cb1]
+[function_build_definitions.b8638676-a30d-4224-ae78-8d9006118fb5]
 packagetype = "Image"
 functions = ["SNSFunction"]
 
-[function_build_definitions.c643d440-fc6b-4452-849c-1df401878cb1.metadata]
+[function_build_definitions.b8638676-a30d-4224-ae78-8d9006118fb5.metadata]
 Dockerfile = "Dockerfile"
 DockerContext = "/Users/antonputra/Developer/tutorials/lessons/075/sam/sns"
 DockerTag = "python3.8-v1"

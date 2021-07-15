@@ -92,3 +92,7 @@ curl -d '{"name": "Anton"}' https://hzfn3mfbt3.execute-api.us-east-1.amazonaws.c
 https://github.com/aws/serverless-application-model/issues/124
 
 aws sns create-topic --name sns-topic-for-lambda
+
+aws sns publish --message file://message.txt --subject Test \
+--topic-arn arn:aws:sns:us-east-2:12345678901A:sns-topic-for-lambda \
+--profile accountA
